@@ -15,10 +15,5 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('users',function () {
-        $user = new \App\User();
-
-        $user->create('hoge');
-        return 'hoge';
-    }
-    );
+$app->post('users', 'UserController@create');
+$app->get('users/{id}', 'UserController@get');
